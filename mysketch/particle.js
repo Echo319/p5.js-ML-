@@ -3,7 +3,7 @@ class Particle {
         this.pos = createVector(width / 2, height / 2);
         this.rays = [];
 
-        let numberOfRays = 36;
+        let numberOfRays = 3600;
         let angleStep = 360 / numberOfRays;
         for (let i = 0; i < 360; i += angleStep) {
             this.rays.push(new Ray(this.pos, radians(i)));
@@ -39,7 +39,7 @@ class Particle {
                 }
             }
             if (closest) {
-
+                stroke(255,100);
                 line(this.pos.x, this.pos.y, closest.x, closest.y)
             }
 
