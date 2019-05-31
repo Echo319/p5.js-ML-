@@ -28,6 +28,6 @@ function draw() {
 	particle.show();
 
 
-	particle.look(walls[0]);
+	particle.look(walls);
 
 }
