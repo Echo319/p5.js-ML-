@@ -1,10 +1,15 @@
 p5.js ML
 
-By creating a particle that can move and "see" a "car" can be trained to move around a course. 
-Tensorflow has a js library and p5.js allows for easy graphical stuff to run.
+WIP -
 
+Start off by having a particle see.
 
-CD into sketch folder and run "live-server" in console should serve the page in browser.
+Then a way to move that particle.
 
-run "npm install live-server -g" if you dont have it, its kinda useful
-Http-server should also work.
+Then can create the NN that can move it.
+
+Then can do all the reinforcement learning. 
+
+------------------------------------------
+
+Because im a nerd i kinda want to get a First person view looking right. 
