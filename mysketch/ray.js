@@ -4,6 +4,11 @@ class Ray {
         this.dir = p5.Vector.fromAngle(angle);
     }
 
+
+    setAngle(angle) {
+        this.dir = p5.Vector.fromAngle(angle);
+    }
+
     setDir(x,y) {
         this.dir.x = x - this.pos.x;
         this.dir.y = y - this.pos.y;
@@ -12,6 +17,7 @@ class Ray {
 
     show() {
         stroke(255);
+        strokeWeight(1);
         push();
         translate(this.pos.x, this.pos.y);
         line(0,0, this.dir.x * 10, this.dir.y * 10);
