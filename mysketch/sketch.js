@@ -7,25 +7,26 @@ const sceneH = 900;
 
 function setup() {
 	createCanvas(800, 600);
-	particle = new Particle(25,25);
+	// start of course pointing north
+	particle = new Particle(150, 550, -90);
 	//init some boundrys
+	walls.push(new Boundary(walls.length, 100, 550, 100, 300));
+	walls.push(new Boundary(walls.length, 200, 550, 200, 300));
+
+	walls.push(new Boundary(walls.length, 100, 300, 150, 200));
+	walls.push(new Boundary(walls.length, 200, 300, 300, 200));
 	
-	 for(let i = 0; i < 6; i++) {
-	 	let x1 = random(sceneW);
-	 	let y1 = random(sceneH);
-	 	let x2 = random(sceneW);
-	 	let y2 = random(sceneH);
+	walls.push(new Boundary(walls.length, 150, 200, 250, 100));
+	walls.push(new Boundary(walls.length, 300, 200, 800, 200));
 
-	 	walls.push(new Boundary(i, x1,y1,x2,y2));
-	 }
-
+	walls.push(new Boundary(walls.length, 250, 100, 800, 100))
 
 }
 
 function draw() {
 	background(0);
 
-	for(let wall of walls) {
+	for (let wall of walls) {
 		wall.show();
 	}
 
