@@ -1,8 +1,8 @@
 class Particle {
-    constructor(x, y) {
+    constructor(x, y, heading) {
         this.pos = createVector(x, y);
         this.nextPos = this.pos.copy();
-        this.dir = createVector(1, 0);
+        this.dir = createVector(1, 0).rotate(radians(heading));
 
         this.vel = 0; //velocity
         this.maxVel = 2; //Max velocity
