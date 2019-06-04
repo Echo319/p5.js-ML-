@@ -30,7 +30,9 @@ class Particle {
 
     update(walls) {
         this.getNextPosition();
-        this.blocked(walls);
+        // cant we just get if any of the distances are 0 or within the radius of the particle? 
+        // + a small buffer of like a pixel or something.
+        //this.blocked(walls);
         this.updatePos();
 
         for (let ray of this.rays) {
@@ -82,6 +84,8 @@ class Particle {
         }
 
 
+    // This only works if the walls are perfectly horizontal or vertical
+    // Man is dumb...
     blocked(walls) {
         this.collide = false;
         const dMax = (this.diameter / 2) + (2);
@@ -110,6 +114,7 @@ class Particle {
     }
 
     look(walls) {
+        this.collide = false;
         this.shape = [];
 
         for (let ray of this.rays) {
@@ -126,7 +131,10 @@ class Particle {
                         wallHitId = wall.id;
                         record = d;
                     }
+                    // TODO: this kinda works but can walk backwards into a wall turn around and continue. so for the NN side its ok.
+                    if (d < (this.diameter / 2)) { this.collide = true; }
                 }
+                
             }
 
             const point = {
