@@ -42,30 +42,12 @@ class Particle {
         this.show()
     }
 
-    move(key) {
-        switch (key) {
-            // W 
-            case 87:
-                this.vel = this.maxVel;
-                break;
-                // S
-            case 83:
-                this.vel = -this.maxVel;
-                break;
-                // A 
-            case 65:
-                this.turnSpeed = -this.maxTurnSpeed;
-                break;
-                // Dwww
-            case 68:
-                this.turnSpeed = this.maxTurnSpeed;
-                break;
+    setVel(n) {
+        this.vel = n;
+    }
 
-            case 0:
-                this.vel = 0;
-                this.turnSpeed = 0;
-                break;
-        }
+    setRot(n) {
+        this.turnSpeed = n;
     }
 
 
@@ -80,8 +62,8 @@ class Particle {
         if (!this.collide) {
             this.pos.x = this.nextPos.x
             this.pos.y = this.nextPos.y
-          }
         }
+    }
 
 
     // This only works if the walls are perfectly horizontal or vertical
@@ -132,9 +114,11 @@ class Particle {
                         record = d;
                     }
                     // TODO: this kinda works but can walk backwards into a wall turn around and continue. so for the NN side its ok.
-                    if (d < (this.diameter / 2)) { this.collide = true; }
+                    if (d < (this.diameter / 2)) {
+                        this.collide = true;
+                    }
                 }
-                
+
             }
 
             const point = {
